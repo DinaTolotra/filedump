@@ -1,4 +1,4 @@
-filedump:
+filedump: dir
 	@echo "Building ..."
 	@cc -Wall -Wextra -Werror -g main.c -o build/filedump
 
