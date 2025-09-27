@@ -5,7 +5,7 @@ build_dir = ./build/
 
 filedump: build build/libio.a
 	@echo "Building ..."
-	@cc $(cc_w_flag) -g main.c -o $(build_dir)/filedump
+	@cc $(cc_w_flag) -o $(build_dir)/filedump -g main.c -lio -L$(build_dir)
 
 build/libio.a: build/libio/io_output.o build/libio/io_input.o build
 	@mkdir -p $(build_dir)libio/
