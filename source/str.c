@@ -58,6 +58,7 @@ void _create_res(char **res, char *base)
 {
   (*res) = malloc(sizeof(char) * 34);
   (*res)[0] = base[0];
+  (*res)[1] = 0;
 }
 
 void _to_positive(long *lnb, char *res, int *index)
@@ -70,7 +71,7 @@ void _to_positive(long *lnb, char *res, int *index)
   }
 }
 
-int str_lenght(char *str)
+int str_length(char *str)
 {
   int length;
 
@@ -90,7 +91,7 @@ int str_frombase(char *nb, char *base)
 
   if (!_is_basevalid(base))
     return (0);
-  baseval = str_lenght(base);
+  baseval = str_length(base);
   index = 0;
   sign = 1;
   lnb = 0;
@@ -118,7 +119,7 @@ char *str_tobase(int nb, char *base)
     return (0);
   lnb = nb;
   index = 0;
-  baseval = str_lenght(base);
+  baseval = str_length(base);
   _create_res(&res, base);
   _to_positive(&lnb, res, &index);
   beg = index;
@@ -126,9 +127,9 @@ char *str_tobase(int nb, char *base)
   {
     res[index] = base[lnb % baseval];
     lnb = lnb / baseval;
+    res[index + 1] = 0;
     index++;
   }
-  res[index] = 0;
   str_reverse(res, beg, index - 1);
   return (res);
 }

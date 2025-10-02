@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 
-int str_lenght(char *str);
+int str_length(char *str);
 int str_find(char c, char *str);
 void str_reverse(char *str, int beg, int end);
 

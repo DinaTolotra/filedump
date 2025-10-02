@@ -3,9 +3,9 @@ source_dir = ./source/
 include_dir = ./include/
 build_dir = ./build/
 
-filedump: build build/libio.a build/libfs.a build/libstr.a
+filedump: build build/libio.a build/libfs.a build/libstr.a build/dump.o
 	@echo "Building ..."
-	@cc $(cc_w_flag) -o $(build_dir)/filedump -g main.c -lio -lfs -lstr -L$(build_dir)
+	@cc $(cc_w_flag) -o $(build_dir)/filedump -g main.c $(build_dir)dump.o -lio -lfs -lstr -L$(build_dir)
 
 # static library
 build/libio.a: build/libio/io_output.o build/libio/io_input.o build
@@ -36,6 +36,9 @@ build/libfs/fs.o: build
 build/libstr/str.o: build
 	@mkdir -p $(build_dir)libstr/
 	@cc $(cc_w_flag) -o $(build_dir)libstr/str.o -c $(source_dir)str.c -I$(include_dir)
+
+build/dump.o: build
+	@cc $(cc_w_flag) -o $(build_dir)dump.o -c $(source_dir)dump.c -I$(include_dir)
 
 build:
 	@mkdir -p $(build_dir)
