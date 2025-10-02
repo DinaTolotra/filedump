@@ -1,5 +1,5 @@
-#ifndef LIB_FS_H
-#define LIB_FS_H
+#ifndef LIBFS_H
+#define LIBFS_H
 
 #include <fcntl.h>
 
@@ -8,4 +8,4 @@ int fs_openfile_for_write(char *file);
 int fs_createfile(char *file);
 int fs_closefile(int fd);
 
-#endif // LIB_FS_H
+#endif // LIBFS_H

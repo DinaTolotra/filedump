@@ -39,3 +39,12 @@ int io_putnb(int fd, int nb)
   io_putchar(fd, (char)((lnb % 10) + '0'));
   return count + 1;
 }
+
+void io_putchar_hex(int fd, char c)
+{
+  char *hex;
+
+  hex = "0123456789abcdef";
+  io_putchar(fd, hex[c / 16]);
+  io_putchar(fd, hex[c % 16]);
+}
